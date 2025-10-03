@@ -7,6 +7,7 @@ import MedicareConsultation from './pages/MedicareConsultation';
 import MembershipPlans from './pages/MembershipPlans';
 import MembershipHealthPlans from './pages/MembershipHealthPlans';
 
+// GitHub Pages deployment fix
 function App() {
   return (
     <Router basename={import.meta.env.BASE_URL}>
