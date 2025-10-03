@@ -61,7 +61,7 @@ function Layout({ children }: { children: React.ReactNode }) {
               className="flex items-center hover:opacity-80 transition-opacity"
             >
               <img 
-                src="/src/components/logo.jpg" 
+                src="./src/components/logo.jpg" 
                 alt="CareSync Logo" 
                 className="h-12 w-12 mr-3 object-contain"
               />
@@ -119,7 +119,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <div className="flex items-center mb-4">
                 <img 
-                  src="/src/components/logo.jpg" 
+                  src="./src/components/logo.jpg" 
                   alt="CareSync Logo" 
                   className="h-12 w-12 mr-3 object-contain"
                 />

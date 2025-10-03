@@ -163,7 +163,7 @@ function Home() {
                      </div>
                      <div className="w-80 h-64">
                        <img 
-                         src="/src/components/healthinsurance.png" 
+                         src="./src/components/healthinsurance.png" 
                          alt="Health Insurance Plans" 
                          className="w-full h-full object-cover rounded-lg"
                        />
@@ -194,7 +194,7 @@ function Home() {
                      </div>
                      <div className="w-80 h-64">
                        <img 
-                         src="/src/components/medicare.jpg" 
+                         src="./src/components/medicare.jpg" 
                          alt="Medicare Consultation" 
                          className="w-full h-full object-cover rounded-lg"
                        />
@@ -217,7 +217,7 @@ function Home() {
                      </div>
                      <div className="w-80 h-64">
                        <img 
-                         src="/src/components/healthcircle.jpg" 
+                         src="./src/components/healthcircle.jpg" 
                          alt="Membership Health Plans" 
                          className="w-full h-full object-cover rounded-lg"
                        />
@@ -250,7 +250,7 @@ function Home() {
               </div>
               <div className="relative">
                 <img 
-                  src="/src/components/ready.jpg" 
+                  src="./src/components/ready.jpg" 
                   alt="Healthcare consultation" 
                   className="rounded-xl shadow-xl w-full h-64 object-cover"
                 />
