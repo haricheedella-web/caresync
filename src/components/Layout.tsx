@@ -4,10 +4,6 @@ import {
   Menu,
   X,
   Phone,
-  Facebook,
-  Twitter,
-  Linkedin,
-  ChevronDown,
   Stethoscope,
 } from 'lucide-react';
 
@@ -25,46 +21,28 @@ function Layout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    if (location.pathname !== '/') {
+  const scrollToSection = (id: string, isRoute?: boolean) => {
+    if (isRoute) {
+      navigate(`/${id}`);
+    } else if (location.pathname !== '/') {
       navigate('/', { state: { scrollTo: id } });
     } else {
       const element = document.getElementById(id);
       if (element) {
-        const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        });
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
     setMobileMenuOpen(false);
   };
 
-  const handleNavigation = (id: string, hasDropdown?: boolean) => {
-    if (id === 'membership-plans') {
-      navigate('/membership-plans');
-      setMobileMenuOpen(false);
-    } else {
-      scrollToSection(id);
-    }
-  };
-
   const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'Health Insurance Plans', id: 'health-insurance' },
-    { label: 'Group Health Benefits', id: 'group-benefits' },
-    { label: 'Membership Health Plans', id: 'membership-plans' },
-    { label: 'Original Remedies and Cures', id: 'remedies' },
-    { label: 'Medicare', id: 'medicare' },
-    { label: 'Shop Medical Services and Products', id: 'shop' },
-    { label: 'Resource Directory', id: 'resources', hasDropdown: true },
-    { label: 'Contact Us', id: 'contact' },
-    { label: 'Subscribe', id: 'subscribe' },
-    { label: 'Events Calendar', id: 'events' },
+    { label: 'About us', id: 'about' },
+    { label: 'Membership Health Plans', id: 'membership-health-plans', isRoute: true },
+    { label: 'Testimonials', id: 'testimonials' },
+    { label: 'Work', id: 'work' },
+    { label: 'Book a service', id: 'consultation' },
+    { label: 'Contact', id: 'contact' },
+    { label: 'Explore', id: 'explore' },
   ];
 
   return (
@@ -72,7 +50,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-slate-900 shadow-lg' : 'bg-slate-900'
+          scrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,60 +60,31 @@ function Layout({ children }: { children: React.ReactNode }) {
               onClick={() => navigate('/')}
               className="flex items-center hover:opacity-80 transition-opacity"
             >
-              <Stethoscope className="h-8 w-8 text-blue-400" />
-              <span className="ml-2 text-xl font-bold text-white">CareSync Advisors</span>
+              <img 
+                src="/src/components/logo.jpg" 
+                alt="CareSync Logo" 
+                className="h-12 w-12 mr-3 object-contain"
+              />
+              <span className="text-xl font-bold text-gray-900">CareSync Dynamic Advisors</span>
             </button>
 
             {/* Desktop Navigation */}
-            <nav className="hidden xl:flex space-x-6 items-center">
+            <nav className="hidden lg:flex space-x-8 items-center">
               {navItems.map((item) => (
-                <div key={item.id} className="relative group">
-                  {item.hasDropdown ? (
-                    <button
-                      onClick={() => handleNavigation(item.id, item.hasDropdown)}
-                      className="text-gray-200 hover:text-blue-400 transition-colors text-sm font-medium flex items-center"
-                    >
-                      {item.label}
-                      <ChevronDown className="ml-1 h-4 w-4" />
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => handleNavigation(item.id)}
-                      className="text-gray-200 hover:text-blue-400 transition-colors text-sm font-medium"
-                    >
-                      {item.label}
-                    </button>
-                  )}
-                </div>
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id, item.isRoute)}
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                >
+                  {item.label}
+                </button>
               ))}
             </nav>
-
-            {/* Right Side - Social & Call Button */}
-            <div className="hidden xl:flex items-center space-x-4">
-              <div className="flex space-x-3">
-                <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  <Twitter className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  <Linkedin className="h-5 w-5" />
-                </a>
-              </div>
-              <a
-                href="tel:1-800-555-CARE"
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center transition-colors font-medium"
-              >
-                <Phone className="h-4 w-4 mr-2" />
-                Call Now
-              </a>
-            </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden text-white"
+              className="lg:hidden text-gray-700 hover:text-blue-600"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -144,30 +93,99 @@ function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-slate-800 border-t border-slate-700">
+          <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
             <div className="px-4 py-4 space-y-3">
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => handleNavigation(item.id)}
-                  className="block w-full text-left text-gray-200 hover:text-blue-400 transition-colors py-2"
+                  onClick={() => scrollToSection(item.id, item.isRoute)}
+                  className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors py-2 font-medium"
                 >
                   {item.label}
                 </button>
               ))}
-              <a
-                href="tel:1-800-555-CARE"
-                className="block w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center transition-colors mt-4"
-              >
-                Call Now
-              </a>
             </div>
           </div>
         )}
       </header>
 
       {/* Main Content */}
-      <main>{children}</main>
+      <main className="pt-20">{children}</main>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-300 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center mb-4">
+                <img 
+                  src="/src/components/logo.jpg" 
+                  alt="CareSync Logo" 
+                  className="h-12 w-12 mr-3 object-contain"
+                />
+                <span className="text-xl font-bold text-white">CareSync Dynamic Advisors</span>
+              </div>
+              <p className="text-gray-400 text-sm">
+                Your trusted partner in navigating healthcare with confidence and care.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <button
+                    onClick={() => scrollToSection('services')}
+                    className="hover:text-blue-400 transition-colors"
+                  >
+                    Health Insurance
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection('consultation')}
+                    className="hover:text-blue-400 transition-colors"
+                  >
+                    Book Consultation
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection('contact')}
+                    className="hover:text-blue-400 transition-colors"
+                  >
+                    Contact Us
+                  </button>
+                </li>
+              </ul>
+            </div>
+            
+            
+            <div>
+              <h4 className="text-white font-semibold mb-4">Contact Info</h4>
+              <div className="space-y-2 text-sm">
+                <p className="text-gray-400">+1 (803) 728-6698</p>
+                <p className="text-gray-400">caresyncdynamicadvisors@gmail.com</p>
+                <p className="text-gray-400">
+                  3020 Sunset Blvd<br />
+                  West Columbia, SC 29169<br />
+                  Charlotte, NC 28273
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-700 pt-8">
+            <div className="text-sm text-gray-400 text-center">
+              <p>© {new Date().getFullYear()} CareSync Dynamic Advisors. All rights reserved.</p>
+              <p className="mt-2">
+                <strong>Disclaimer:</strong> CareSync Dynamic Advisors is a healthcare advisory service. 
+                We are licensed insurance agents representing multiple insurance carriers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

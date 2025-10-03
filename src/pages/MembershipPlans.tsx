@@ -1,5 +1,6 @@
 import { CheckCircle, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import CalendlyBooking from '../components/CalendlyBooking';
 
 function MembershipPlans() {
   const navigate = useNavigate();
@@ -125,7 +126,6 @@ function MembershipPlans() {
                   </span>
                 </div>
               )}
-
               <div className="p-8 flex-grow">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">{plan.name}</h3>
@@ -162,15 +162,14 @@ function MembershipPlans() {
               </div>
 
               <div className="p-8 pt-0">
-                <button
-                  className={`w-full py-3 rounded-lg font-semibold transition-colors ${
+                <CalendlyBooking
+                  buttonText="Get Started"
+                  buttonClassName={`w-full py-3 rounded-lg font-semibold transition-colors ${
                     plan.popular
                       ? 'bg-blue-500 hover:bg-blue-600 text-white'
                       : 'bg-slate-900 hover:bg-slate-800 text-white'
                   }`}
-                >
-                  Get Started
-                </button>
+                />
               </div>
             </div>
           ))}
