@@ -1,18 +1,8 @@
-// Utility function to get the correct image path based on environment
+// Utility function to get the correct image path for GitHub Pages
 export const getImagePath = (imageName: string): string => {
-  // Check if we're in development (localhost) or production (GitHub Pages)
-  const isDevelopment = typeof window !== 'undefined' && 
-    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
-  
-  if (isDevelopment) {
-    // For local development, use the base path + images directory
-    // Since Vite config has base: '/caresync/', images are served from /caresync/images/
-    return `/caresync/images/${imageName}`;
-  } else {
-    // For GitHub Pages deployment, use the base path + images directory
-    // Images are copied to dist/images during build
-    return `/caresync/images/${imageName}`;
-  }
+  // For GitHub Pages, use the base path + images directory
+  // Images in public/images/ are served at /caresync/images/ due to base: '/caresync/'
+  return `/caresync/images/${imageName}`;
 };
 
 // Predefined image paths for easy use
