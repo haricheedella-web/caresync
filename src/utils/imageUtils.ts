@@ -2,7 +2,9 @@
 export const getImagePath = (imageName: string): string => {
   // For GitHub Pages, use the base path + images directory
   // Images in public/images/ are served at /caresync/images/ due to base: '/caresync/'
-  return `/caresync/images/${imageName}`;
+  const path = `/caresync/images/${imageName}`;
+  console.log(`Image path for ${imageName}: ${path}`);
+  return path;
 };
 
 // Predefined image paths for easy use
