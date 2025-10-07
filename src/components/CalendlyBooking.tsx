@@ -70,7 +70,7 @@ function CalendlyBooking({
               <div 
                 className="absolute inset-0 bg-cover bg-center opacity-50"
                 style={{
-                  backgroundImage: "url('/src/components/book-doctor-appointment.jpg')"
+                  backgroundImage: "url('/caresync/images/book-doctor-appointment.jpg')"
                 }}
               />
               
@@ -109,7 +109,7 @@ function CalendlyBooking({
                   <div className="flex flex-col items-center justify-center h-full text-center">
                     <div className="mb-8">
                       <img 
-                        src="./src/components/book-doctor-appointment.jpg" 
+                        src="/caresync/images/book-doctor-appointment.jpg" 
                         alt="Book Doctor Appointment" 
                         className="w-32 h-32 rounded-full mx-auto mb-6 object-cover shadow-lg"
                       />

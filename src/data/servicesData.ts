@@ -40,14 +40,14 @@ export const servicesData: Service[] = [
         id: 'health-plan-brochure',
         name: 'Health Insurance Plan Brochure',
         type: 'image',
-        url: '/src/components/doc.jpg',
+        url: '/caresync/images/doc.jpg',
         description: 'Comprehensive overview of our health insurance plans and coverage options'
       },
       {
         id: 'coverage-comparison',
         name: 'Coverage Comparison Chart',
         type: 'pdf',
-        url: '/src/components/doc.jpg',
+        url: '/caresync/images/doc.jpg',
         description: 'Side-by-side comparison of different plan options and benefits'
       }
     ]
@@ -270,14 +270,14 @@ export const servicesData: Service[] = [
         id: 'group-benefits-overview',
         name: 'Group Benefits Overview',
         type: 'pdf',
-        url: '/src/components/doc.jpg',
+        url: '/caresync/images/doc.jpg',
         description: 'Comprehensive guide to group health benefits and implementation'
       },
       {
         id: 'employee-handbook',
         name: 'Employee Benefits Handbook',
         type: 'pdf',
-        url: '/src/components/doc.jpg',
+        url: '/caresync/images/doc.jpg',
         description: 'Sample employee handbook template for benefits communication'
       }
     ],
@@ -305,14 +305,14 @@ export const servicesData: Service[] = [
         id: 'consultation-checklist',
         name: 'Consultation Preparation Checklist',
         type: 'pdf',
-        url: '/src/components/doc.jpg',
+        url: '/caresync/images/doc.jpg',
         description: 'Checklist to help you prepare for your healthcare consultation'
       },
       {
         id: 'healthcare-planning',
         name: 'Healthcare Planning Guide',
         type: 'pdf',
-        url: '/src/components/doc.jpg',
+        url: '/caresync/images/doc.jpg',
         description: 'Guide to long-term healthcare planning and insurance strategy'
       }
     ],
@@ -340,14 +340,14 @@ export const servicesData: Service[] = [
         id: 'short-term-guide',
         name: 'Short-term Coverage Guide',
         type: 'pdf',
-        url: '/src/components/doc.jpg',
+        url: '/caresync/images/doc.jpg',
         description: 'Complete guide to short-term health insurance options'
       },
       {
         id: 'transition-planning',
         name: 'Health Insurance Transition Planning',
         type: 'pdf',
-        url: '/src/components/doc.jpg',
+        url: '/caresync/images/doc.jpg',
         description: 'Tips for managing health insurance during life transitions'
       }
     ],
@@ -375,14 +375,14 @@ export const servicesData: Service[] = [
         id: 'prescription-formulary',
         name: 'Prescription Drug Formulary',
         type: 'pdf',
-        url: '/src/components/doc.jpg',
+        url: '/caresync/images/doc.jpg',
         description: 'Complete list of covered medications and copay information'
       },
       {
         id: 'medication-guide',
         name: 'Medication Management Guide',
         type: 'pdf',
-        url: '/src/components/doc.jpg',
+        url: '/caresync/images/doc.jpg',
         description: 'Guide to managing prescription medications and costs'
       }
     ],

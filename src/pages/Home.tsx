@@ -73,7 +73,7 @@ function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/src/components/doc.jpg')"
+            backgroundImage: "url('/caresync/images/doc.jpg')"
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent"></div>
@@ -163,7 +163,7 @@ function Home() {
                      </div>
                      <div className="w-80 h-64">
                        <img 
-                         src="./src/components/healthinsurance.png" 
+                         src="/caresync/images/healthinsurance.png" 
                          alt="Health Insurance Plans" 
                          className="w-full h-full object-cover rounded-lg"
                        />
@@ -194,7 +194,7 @@ function Home() {
                      </div>
                      <div className="w-80 h-64">
                        <img 
-                         src="./src/components/medicare.jpg" 
+                         src="/caresync/images/medicare.jpg" 
                          alt="Medicare Consultation" 
                          className="w-full h-full object-cover rounded-lg"
                        />
@@ -217,7 +217,7 @@ function Home() {
                      </div>
                      <div className="w-80 h-64">
                        <img 
-                         src="./src/components/healthcircle.jpg" 
+                         src="/caresync/images/healthcircle.jpg" 
                          alt="Membership Health Plans" 
                          className="w-full h-full object-cover rounded-lg"
                        />
@@ -250,7 +250,7 @@ function Home() {
               </div>
               <div className="relative">
                 <img 
-                  src="./src/components/ready.jpg" 
+                  src="/caresync/images/ready.jpg" 
                   alt="Healthcare consultation" 
                   className="rounded-xl shadow-xl w-full h-64 object-cover"
                 />
