@@ -18,22 +18,6 @@ import CalendlyBooking from '../components/CalendlyBooking';
 import SimpleMap from '../components/SimpleMap';
 import { images } from '../utils/imageUtils';
 
-// Debug: Log the image paths and environment
-console.log('Environment check:', {
-  hostname: typeof window !== 'undefined' ? window.location.hostname : 'server-side',
-  isDevelopment: typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-});
-
-console.log('Image paths:', {
-  logo: images.logo(),
-  doc: images.doc(),
-  medicare: images.medicare(),
-  healthinsurance: images.healthinsurance(),
-  healthcircle: images.healthcircle(),
-  ready: images.ready(),
-  bookDoctor: images.bookDoctor()
-});
-
 
 function Home() {
   const navigate = useNavigate();
@@ -94,14 +78,6 @@ function Home() {
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent"></div>
-        </div>
-
-        {/* Debug Test Image */}
-        <div className="absolute top-4 left-4 bg-white p-2 rounded shadow-lg z-20">
-          <p className="text-xs font-bold">Debug Test:</p>
-          <img src={images.logo()} alt="Test Logo" className="w-8 h-8" />
-          <p className="text-xs">Path: {images.logo()}</p>
-          <p className="text-xs">Hostname: {typeof window !== 'undefined' ? window.location.hostname : 'server-side'}</p>
         </div>
 
         {/* Content */}

@@ -9,7 +9,8 @@ export const getImagePath = (imageName: string): string => {
     // Since Vite config has base: '/caresync/', images are served from /caresync/images/
     return `/caresync/images/${imageName}`;
   } else {
-    // For GitHub Pages deployment, use the full path with base
+    // For GitHub Pages deployment, images are in dist/images/ directory
+    // GitHub Pages serves from root, so we need /caresync/dist/images/
     return `/caresync/dist/images/${imageName}`;
   }
 };
