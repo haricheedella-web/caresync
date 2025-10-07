@@ -1,23 +1,18 @@
-// Alternative approach: Use Vite's import system for better asset handling
-import logoImg from '/images/logo.jpg';
-import docImg from '/images/doc.jpg';
-import healthinsuranceImg from '/images/healthinsurance.png';
-import medicareImg from '/images/medicare.jpg';
-import healthcircleImg from '/images/healthcircle.jpg';
-import readyImg from '/images/ready.jpg';
-import bookDoctorImg from '/images/book-doctor-appointment.jpg';
-import downloadImg from '/images/download.png';
-import imageImg from '/images/image.jpg';
+// Utility function to get the correct image path for GitHub Pages
+export const getImagePath = (imageName: string): string => {
+  // Images are served from /caresync/dist/images/ on GitHub Pages
+  return `/caresync/dist/images/${imageName}`;
+};
 
 // Predefined image paths for easy use
 export const images = {
-  logo: () => logoImg,
-  doc: () => docImg,
-  healthinsurance: () => healthinsuranceImg,
-  medicare: () => medicareImg,
-  healthcircle: () => healthcircleImg,
-  ready: () => readyImg,
-  bookDoctor: () => bookDoctorImg,
-  download: () => downloadImg,
-  image: () => imageImg,
+  logo: () => getImagePath('logo.jpg'),
+  doc: () => getImagePath('doc.jpg'),
+  healthinsurance: () => getImagePath('healthinsurance.png'),
+  medicare: () => getImagePath('medicare.jpg'),
+  healthcircle: () => getImagePath('healthcircle.jpg'),
+  ready: () => getImagePath('ready.jpg'),
+  bookDoctor: () => getImagePath('book-doctor-appointment.jpg'),
+  download: () => getImagePath('download.png'),
+  image: () => getImagePath('image.jpg'),
 };
