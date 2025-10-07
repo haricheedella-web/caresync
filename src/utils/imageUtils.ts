@@ -1,7 +1,7 @@
 // Utility function to get the correct image path for GitHub Pages
 export const getImagePath = (imageName: string): string => {
-  // Images are served from /caresync/dist/images/ on GitHub Pages
-  return `/caresync/dist/images/${imageName}`;
+  // Images are served from /caresync/images/ on GitHub Pages
+  return `/caresync/images/${imageName}`;
 };
 
 // Predefined image paths for easy use
