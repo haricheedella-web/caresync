@@ -6,7 +6,7 @@
   "homepage": "https://haricheedella-web.github.io/caresync",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/caresync/",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
