@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import ServicePage from './pages/ServicePage';
@@ -10,7 +10,7 @@ import MembershipHealthPlans from './pages/MembershipHealthPlans';
 // GitHub Pages deployment fix
 function App() {
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
