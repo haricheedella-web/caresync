@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Calendar, X, Clock, User, Mail } from 'lucide-react';
+import { images } from '../utils/imageUtils';
 
 interface CalendlyBookingProps {
   url?: string;
@@ -70,7 +71,7 @@ function CalendlyBooking({
               <div 
                 className="absolute inset-0 bg-cover bg-center opacity-50"
                 style={{
-                  backgroundImage: "url('/caresync/images/book-doctor-appointment.jpg')"
+                  backgroundImage: `url('${images.bookDoctor()}')`
                 }}
               />
               
@@ -109,7 +110,7 @@ function CalendlyBooking({
                   <div className="flex flex-col items-center justify-center h-full text-center">
                     <div className="mb-8">
                       <img 
-                        src="/caresync/images/book-doctor-appointment.jpg" 
+                        src={images.bookDoctor()} 
                         alt="Book Doctor Appointment" 
                         className="w-32 h-32 rounded-full mx-auto mb-6 object-cover shadow-lg"
                       />

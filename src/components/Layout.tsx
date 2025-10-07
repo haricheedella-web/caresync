@@ -6,6 +6,7 @@ import {
   Phone,
   Stethoscope,
 } from 'lucide-react';
+import { images } from '../utils/imageUtils';
 
 function Layout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ function Layout({ children }: { children: React.ReactNode }) {
               className="flex items-center hover:opacity-80 transition-opacity"
             >
               <img 
-                src="/caresync/images/logo.jpg" 
+                src={images.logo()} 
                 alt="CareSync Logo" 
                 className="h-12 w-12 mr-3 object-contain"
               />
@@ -119,7 +120,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <div className="flex items-center mb-4">
                 <img 
-                  src="/caresync/images/logo.jpg" 
+                  src={images.logo()} 
                   alt="CareSync Logo" 
                   className="h-12 w-12 mr-3 object-contain"
                 />

@@ -16,6 +16,23 @@ import {
 } from 'lucide-react';
 import CalendlyBooking from '../components/CalendlyBooking';
 import SimpleMap from '../components/SimpleMap';
+import { images } from '../utils/imageUtils';
+
+// Debug: Log the image paths and environment
+console.log('Environment check:', {
+  hostname: typeof window !== 'undefined' ? window.location.hostname : 'server-side',
+  isDevelopment: typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+});
+
+console.log('Image paths:', {
+  logo: images.logo(),
+  doc: images.doc(),
+  medicare: images.medicare(),
+  healthinsurance: images.healthinsurance(),
+  healthcircle: images.healthcircle(),
+  ready: images.ready(),
+  bookDoctor: images.bookDoctor()
+});
 
 
 function Home() {
@@ -73,10 +90,18 @@ function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/caresync/images/doc.jpg')"
+            backgroundImage: `url('${images.doc()}')`
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent"></div>
+        </div>
+
+        {/* Debug Test Image */}
+        <div className="absolute top-4 left-4 bg-white p-2 rounded shadow-lg z-20">
+          <p className="text-xs font-bold">Debug Test:</p>
+          <img src={images.logo()} alt="Test Logo" className="w-8 h-8" />
+          <p className="text-xs">Path: {images.logo()}</p>
+          <p className="text-xs">Hostname: {typeof window !== 'undefined' ? window.location.hostname : 'server-side'}</p>
         </div>
 
         {/* Content */}
@@ -163,7 +188,7 @@ function Home() {
                      </div>
                      <div className="w-80 h-64">
                        <img 
-                         src="/caresync/images/healthinsurance.png" 
+                         src={images.healthinsurance()} 
                          alt="Health Insurance Plans" 
                          className="w-full h-full object-cover rounded-lg"
                        />
@@ -194,7 +219,7 @@ function Home() {
                      </div>
                      <div className="w-80 h-64">
                        <img 
-                         src="/caresync/images/medicare.jpg" 
+                         src={images.medicare()} 
                          alt="Medicare Consultation" 
                          className="w-full h-full object-cover rounded-lg"
                        />
@@ -217,7 +242,7 @@ function Home() {
                      </div>
                      <div className="w-80 h-64">
                        <img 
-                         src="/caresync/images/healthcircle.jpg" 
+                         src={images.healthcircle()} 
                          alt="Membership Health Plans" 
                          className="w-full h-full object-cover rounded-lg"
                        />
@@ -250,7 +275,7 @@ function Home() {
               </div>
               <div className="relative">
                 <img 
-                  src="/caresync/images/ready.jpg" 
+                  src={images.ready()} 
                   alt="Healthcare consultation" 
                   className="rounded-xl shadow-xl w-full h-64 object-cover"
                 />
