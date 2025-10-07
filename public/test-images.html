@@ -1,18 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Image Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test - CareSync</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        img { margin: 10px; border: 2px solid #ddd; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
 </head>
 <body>
-    <h1>Image Test</h1>
-    <h2>Local Development Test</h2>
-    <img src="/caresync/dist/images/logo.jpg" alt="Logo" style="width: 100px; height: 100px;">
-    <img src="/caresync/dist/images/doc.jpg" alt="Doc" style="width: 100px; height: 100px;">
-    <img src="/caresync/dist/images/medicare.jpg" alt="Medicare" style="width: 100px; height: 100px;">
+    <h1>CareSync Image Path Testing</h1>
     
-    <h2>Correct Path Test</h2>
-    <img src="/caresync/images/logo.jpg" alt="Logo Correct" style="width: 100px; height: 100px;">
-    <img src="/caresync/images/doc.jpg" alt="Doc Correct" style="width: 100px; height: 100px;">
-    <img src="/caresync/images/medicare.jpg" alt="Medicare Correct" style="width: 100px; height: 100px;">
+    <div class="test-section">
+        <h2>Current Environment</h2>
+        <p><strong>URL:</strong> <span id="current-url"></span></p>
+        <p><strong>Base Path:</strong> <span id="base-path"></span></p>
+    </div>
+
+    <div class="test-section">
+        <h2>Direct Image Tests</h2>
+        <h3>Using /caresync/images/ paths:</h3>
+        <img src="/caresync/images/logo.jpg" alt="Logo" style="width: 100px; height: 100px;" onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+        <img src="/caresync/images/doc.jpg" alt="Doc" style="width: 100px; height: 100px;" onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+        <img src="/caresync/images/medicare.jpg" alt="Medicare" style="width: 100px; height: 100px;" onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+        <img src="/caresync/images/healthinsurance.png" alt="Health Insurance" style="width: 100px; height: 100px;" onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+        <img src="/caresync/images/healthcircle.jpg" alt="Health Circle" style="width: 100px; height: 100px;" onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+        <img src="/caresync/images/ready.jpg" alt="Ready" style="width: 100px; height: 100px;" onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+    </div>
+
+    <div class="test-section">
+        <h2>Alternative Path Tests</h2>
+        <h3>Using relative paths:</h3>
+        <img src="./images/logo.jpg" alt="Logo Relative" style="width: 100px; height: 100px;" onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+        <img src="./images/doc.jpg" alt="Doc Relative" style="width: 100px; height: 100px;" onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+    </div>
+
+    <div class="test-section">
+        <h2>JavaScript Test</h2>
+        <p>Testing image loading with JavaScript:</p>
+        <div id="js-test-results"></div>
+    </div>
+
+    <script>
+        // Display current environment info
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('base-path').textContent = window.location.pathname;
+
+        // Test image loading with JavaScript
+        const testImages = [
+            '/caresync/images/logo.jpg',
+            '/caresync/images/doc.jpg',
+            '/caresync/images/medicare.jpg',
+            '/caresync/images/healthinsurance.png',
+            '/caresync/images/healthcircle.jpg',
+            '/caresync/images/ready.jpg'
+        ];
+
+        const resultsDiv = document.getElementById('js-test-results');
+        
+        testImages.forEach(imagePath => {
+            const img = new Image();
+            img.onload = function() {
+                resultsDiv.innerHTML += `<p class="success">✓ ${imagePath} - Loaded successfully</p>`;
+            };
+            img.onerror = function() {
+                resultsDiv.innerHTML += `<p class="error">✗ ${imagePath} - Failed to load</p>`;
+            };
+            img.src = imagePath;
+        });
+    </script>
 </body>
 </html>
