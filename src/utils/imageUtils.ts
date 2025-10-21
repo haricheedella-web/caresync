@@ -1,8 +1,7 @@
 // Utility function to get the correct image path for GitHub Pages
 export const getImagePath = (imageName: string): string => {
-  // Since Vite config has base: '/caresync/', all assets are served from /caresync/
-  // This works for both development and production
-  return `/caresync/images/${imageName}`;
+  // Use relative paths for GitHub Pages compatibility
+  return `./images/${imageName}`;
 };
 
 // Predefined image paths for easy use
