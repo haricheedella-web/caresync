@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Heart, Shield, Users, Stethoscope, Clock, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Heart, Shield, Users, Stethoscope, Clock, CheckCircle, FileText } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
 
 const getIconComponent = (iconType: string) => {
